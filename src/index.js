@@ -21,6 +21,7 @@
         const oldVal = e.target.value;
         e.target.value = `${oldVal.slice(0, currI)}\n${oldVal.slice(currI)}`;
         setCaretPosition(e.target, currI + 1);
+        e.target.dispatchEvent(new CustomEvent('input'));
       } else {
         binding.value && binding.value(e);
       }

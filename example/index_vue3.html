@@ -12,16 +12,19 @@
   <script src="../src/index.js"></script>
   <script>
     const { useEventListener } = VueUse;
-    const { createApp } = Vue;
+    const { createApp, ref, watch } = Vue;
     useEventListener(window, 'load', (e) => {
       const app = createApp({
         directives: { altEnterOrEnter },
         setup() {
+          const text = ref("");
           function handleEnter(e) {
             console.log("Enter", e);
           }
 
-          return { handleEnter };
+          watch(text, (val) => console.log(val))
+
+          return { text, handleEnter };
         }
       });
       app.mount("#app");
@@ -31,7 +34,7 @@
 
 <body>
   <div id="app">
-    <textarea v-alt-enter-or-enter="handleEnter"></textarea>
+    <textarea v-alt-enter-or-enter="handleEnter" v-model="text"></textarea>
   </div>
 </body>
 

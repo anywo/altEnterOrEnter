@@ -13,17 +13,21 @@
   <script src="../src/index.js"></script>
   <script>
     const { useEventListener } = VueUse;
+    const { ref, watch } = VueCompositionAPI;
     Vue.use(VueCompositionAPI)
     useEventListener(window, 'load', (e) => {
       const app = new Vue({
         el: "#app",
         directives: { altEnterOrEnter },
         setup() {
+          const text = ref("");
           function handleEnter(e) {
             console.log("Enter", e);
           }
 
-          return { handleEnter };
+          watch(text, (val) => console.log(val))
+
+          return { text, handleEnter };
         }
       });
     })
@@ -32,7 +36,7 @@
 
 <body>
   <div id="app">
-    <textarea v-alt-enter-or-enter="handleEnter"></textarea>
+    <textarea v-alt-enter-or-enter="handleEnter" v-model="text"></textarea>
   </div>
 </body>
 

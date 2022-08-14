@@ -1,6 +1,6 @@
 {
   "name": "altenterorenter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Enter 发送，Alt+Enter 换行",
   "main": "src/index.js",
   "keywords": [
