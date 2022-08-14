@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="https://unpkg.com/@vueuse/shared"></script>
+  <script src="https://unpkg.com/@vueuse/core"></script>
+  <script src="../src/index.js"></script>
+  <script>
+    const { useEventListener } = VueUse;
+    const { createApp } = Vue;
+    useEventListener(window, 'load', (e) => {
+      const app = createApp({
+        directives: { altEnterOrEnter },
+        setup() {
+          function handleEnter(e) {
+            console.log("Enter", e);
+          }
+
+          return { handleEnter };
+        }
+      });
+      app.mount("#app");
+    });
+  </script>
+</head>
+
+<body>
+  <div id="app">
+    <textarea v-alt-enter-or-enter="handleEnter"></textarea>
+  </div>
+</body>
+
+</html>

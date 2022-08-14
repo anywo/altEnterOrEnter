@@ -1,0 +1,20 @@
+{
+  "name": "altenterorenter",
+  "version": "1.0.0",
+  "description": "Enter 发送，Alt+Enter 换行",
+  "main": "src/index.js",
+  "keywords": [
+    "vue",
+    "alt",
+    "Enter",
+    "input",
+    "chat",
+    "anywo"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anywo/altEnterOrEnter.git"
+  },
+  "author": "anywo<1377593732@qq.com>",
+  "license": "MIT"
+}
